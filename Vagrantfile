@@ -62,6 +62,8 @@ Vagrant.configure("2") do |config|
             vb.cpus = 2
         end
         node.vm.hostname = "kubemaster"
+        node.vm.provision :shell, :inline => "sudo rm -f /EMPTY;", run: "always"
+        node.vm.provision :shell, :inline => "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl restart sshd;", run: "always"
         node.vm.network :private_network, ip: IP_NW + "#{MASTER_IP_START + i}"
         node.vm.network "forwarded_port", guest: 22, host: "#{2710 + i}"
 
@@ -84,6 +86,8 @@ Vagrant.configure("2") do |config|
             vb.cpus = 2
         end
         node.vm.hostname = "kubenode0#{i}"
+        node.vm.provision :shell, :inline => "sudo rm -f /EMPTY;", run: "always"
+        node.vm.provision :shell, :inline => "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl restart sshd;", run: "always"
         node.vm.network :private_network, ip: IP_NW + "#{NODE_IP_START + i}"
                 node.vm.network "forwarded_port", guest: 22, host: "#{2720 + i}"
 
