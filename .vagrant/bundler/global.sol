@@ -1,1 +1,1 @@
-{"dependencies":[["vagrant-guest_ansible",["= 0.0.4"]]],"checksum":"5724a259e0afc756ce5d280a52873539f1f596e69538a9af50c7f661db545a59","vagrant_version":"2.2.17"}
+{"dependencies":[["dotenv-deployment",["~> 0.0.2"]],["dotenv",["~> 0.9"]],["vagrant-env",["= 0.0.3"]],["vagrant-guest_ansible",["= 0.0.4"]]],"checksum":"f3127e391c36736a58706f69a3aa165bb5dbd661c1dfec5b05f593f73aeb7ebc","vagrant_version":"2.2.17"}
