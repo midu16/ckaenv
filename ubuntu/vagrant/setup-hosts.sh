@@ -7,6 +7,9 @@ sed -e "s/^.*${HOSTNAME}.*/${ADDRESS} ${HOSTNAME} ${HOSTNAME}.local/" -i /etc/ho
 # remove ubuntu-bionic entry
 sed -e '/^.*ubuntu-bionic.*/d' -i /etc/hosts
 
+# generating the sshkey for each hosts
+ssh-keygen -f /home/vagrant/.ssh/id_rsa -N ""
+
 # Update /etc/hosts about other hosts
 cat >> /etc/hosts <<EOF
 192.168.5.11  master-1
@@ -14,4 +17,6 @@ cat >> /etc/hosts <<EOF
 192.168.5.21  worker-1
 192.168.5.22  worker-2
 192.168.5.30  lb
+192.168.56.3  kubenode01
+192.168.56.4  kubenode02
 EOF
